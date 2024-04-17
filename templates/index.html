@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Portal</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+	<style>
+    			* {
+        			font-size: 20px;
+        			font-family: 'Arial', sans-serif;
+	    		}
+
+    			body {
+        			background-image: url('photo.jpg');
+        			background-size: cover;
+        			background-position: center;
+        			margin: 0;
+        			padding: 0;
+	        		box-sizing: border-box;
+	    		}
+
+    			.nav {
+        			background-color: #005a87; /* Adjust color to ensure readability over the background */
+        			padding: 10px 0;
+        			text-align: center;
+	    		}
+
+    			.nav a {
+        			color: white;
+        			text-decoration: none;
+       				margin: 0 15px;
+        			font-size: 24px;
+	    		}
+
+    			.nav a:hover {
+        			color: #ffdd57;
+	    		}
+
+    			.content {
+        			text-align: center;
+        			padding: 50px;
+        			color: #333;
+        			background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for content */
+	    		}
+
+    			.content h1 {
+        			color: #005a87;
+	    		}
+
+    			.content p {
+        			font-size: 18px;
+        			line-height: 1.6;
+	    		}
+
+    			.footer {
+        			background-color: #005a87;
+        			color: white;
+        			text-align: center;
+        			padding: 10px;
+        			position: fixed;
+        			bottom: 0;
+        			width: 100%;
+    			}
+	</style>
+</head>
+<body>
+	<center>
+    		<div class="container">
+        		<h1>Welcome to Our Learning Portal</h1>
+
+		        <div class="role-buttons">
+        		    <a href="{{ url_for('professorlogin') }}" class="button professor">Professor</a>
+            		    <a href="{{ url_for('login') }}" class="button student">Student</a>
+        		</div>
+    		</div> 
+	</center>
+	<div class="footer">
+        	© 2024 Evaluation App by OK. All rights reserved.
+    	</div>   
+</body>
+</html>

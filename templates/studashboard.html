@@ -1,7 +1,7 @@
 <html>
-	<head>
-		<title>Authentication App by Omkar</title>
-		<style>
+<head>
+    	<title>Exam App by Omkar</title>
+    		<style>
     		* {
         		font-size: 20px;
         		font-family: 'Arial', sans-serif;
@@ -58,35 +58,39 @@
         		bottom: 0;
         		width: 100%;
     		}
+		.question textarea {
+    			display: block; /* Make textareas block-level elements to occupy full width */
+    			width: 65%; /* Adjust the width as desired */
+    			margin: 10px auto;  /* Center the textarea with a top/bottom margin */
+			height: 150px;
+		}
     		</style>
-	</head>
-	<body>
-		<center>
-    			<div class="content"> 
-        			<h1>Answer Comparison</h1>
+</head>
+<body>
+	<center>	
+		<div class = "nav">
+			<a href = "{{ url_for("stuhome") }}"> Home </a>
+		</div>
+    		<h1>Exam - Even Semester</h1>
 
-        		<form method="POST" action="{{ url_for('compare_answers') }}">
-  				<label for="model_answer">Model Answer:</label><br>
-  				<textarea name="model_answer" rows="10" cols="60" id="model_answer"></textarea><br><br>
+    		<form id="quizForm" method = "POST" action = "{{ url_for('submit_exam') }}">
+        		<div class="question">
+            			<strong>Question 1:</strong> What is the difference between a physical change and a chemical change?
+            			<textarea name="answer1" rows="1"></textarea>
+        		</div>
 
-  				<label for="student_answer">Student Answer:</label><br>
-  				<textarea name="student_answer" rows="10" cols="60" id="student_answer"></textarea><br><br>
+		        <button type="submit">Submit Answers</button>
+    		</form>
 
-  				<button type="submit" name="calculate">Calculate</button> 
-			</form>
-        		<script>
-            			console.log("Script is running!");  
-            			const studentAnswer = '{{ student_answer }}';
-            			const studentAnswerElement = document.getElementById('student_answer');
-
-            			if (studentAnswerElement) {
-                			studentAnswerElement.value = studentAnswer;
-            		} 
-        		</script>
-    			</div>
-		</center>
-   		<div class="footer">     
-			© 2024 Evaluation App by OK. All rights reserved.
-   		</div>	
-	</body>
+    		<script>
+        		const form = document.getElementById('quizForm');
+        		form.addEventListener('submit', (event) => {
+            			alert('Your response is successfully submitted!');
+        		});
+    		</script>
+	</center>
+	<div class="footer">
+        	© 2024 Evaluation App by OK. All rights reserved.
+    	</div>
+</body>
 </html>

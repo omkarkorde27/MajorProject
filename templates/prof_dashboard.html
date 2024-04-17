@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title>Professor Dashboard</title>
+    <style>
+    * {
+       	font-size: 20px;
+        	font-family: 'Arial', sans-serif;
+    }
+
+    body {
+        background-image: url('photo.jpg');
+      	background-size: cover;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .nav {
+        background-color: #005a87; /* Adjust color to ensure readability over the background */
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .nav a {
+        color: white;
+        text-decoration: none;
+       	margin: 0 15px;
+        font-size: 24px;
+    }
+
+    .nav a:hover {
+        color: #ffdd57;
+    }
+
+    .content {
+        text-align: center;
+        padding: 50px;
+        color: #333;
+        background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for content */
+    }
+
+    .content h1 {
+        color: #005a87;
+    }
+
+    .content p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .footer {
+        background-color: #005a87;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    </style>
+</head>
+<body>
+    <h1>Professor Dashboard</h1>
+  <table>
+    <tbody>
+        {% for student_data in student_answers %}
+        <tr>
+            <td>{{ student_data[0] }}</td>
+            <td>{{ student_data[1] }}</td>
+            <td>
+                <form action="{{ url_for('examine') }}" method="POST">
+                    <input type="hidden" name="answer" value="{{ student_data[1] }}"> 
+                    <button type="submit">Evaluate</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

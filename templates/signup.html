@@ -61,32 +61,26 @@
     		</style>
 	</head>
 	<body>
-		<center>
-    			<div class="content"> 
-        			<h1>Answer Comparison</h1>
-
-        		<form method="POST" action="{{ url_for('compare_answers') }}">
-  				<label for="model_answer">Model Answer:</label><br>
-  				<textarea name="model_answer" rows="10" cols="60" id="model_answer"></textarea><br><br>
-
-  				<label for="student_answer">Student Answer:</label><br>
-  				<textarea name="student_answer" rows="10" cols="60" id="student_answer"></textarea><br><br>
-
-  				<button type="submit" name="calculate">Calculate</button> 
+		<center>	
+			<div class = "nav">
+				<a href = "{{ url_for("signup") }}"> Sign up </a>
+				<a href = "{{ url_for("login") }}"> Login </a>
+			</div>
+			<h1> Sign up Page </h1>
+			<br>
+			<form method = "POST">
+				<input type = "text" name = "un" placeholder = "Enter username" />
+				<br><br>
+				<input type = "password" name = "pw1" placeholder = "Enter password" />
+				<br><br>
+				<input type = "password" name = "pw2" placeholder = "confirm password" />
+				<br><br>
+				<input type = "submit" value = "Register"/>
 			</form>
-        		<script>
-            			console.log("Script is running!");  
-            			const studentAnswer = '{{ student_answer }}';
-            			const studentAnswerElement = document.getElementById('student_answer');
-
-            			if (studentAnswerElement) {
-                			studentAnswerElement.value = studentAnswer;
-            		} 
-        		</script>
-    			</div>
+			{{ m }}
 		</center>
-   		<div class="footer">     
-			© 2024 Evaluation App by OK. All rights reserved.
-   		</div>	
+		<div class="footer">
+       	 		© 2024 Evaluation App by OK. All rights reserved.
+    		</div>
 	</body>
 </html>
